@@ -1,0 +1,12 @@
+[package]
+name = "qubit"
+version = "0.1.0"
+authors = ["Abhimanyu Sharma <abhimanyusharma003@gmail.com>"]
+edition = "2018"
+
+[dependencies]
+yew = "0.18"
+lazy_static = "1.4.0"
+pest = "2.1.3"
+pest_derive = "2.1.0"
+float-pretty-print = "0.1.1"
