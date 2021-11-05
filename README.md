@@ -1,3 +1,5 @@
+[![qubit](media/banner.png)](https://abhimanyu003.github.io/qubit/)
+
 # qubit
 
 [Website](https://abhimanyu003.github.io/qubit/)
