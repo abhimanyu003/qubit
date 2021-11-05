@@ -1,4 +1,12 @@
-### Examples
+# qubit
+
+[Website](https://abhimanyu003.github.io/qubit/)
+
+![qubit](media/screenshot.jpg)
+
+## Example
+
+Visit [Website](https://abhimanyu003.github.io/qubit/) to try
 
 ```
 2 + 2
@@ -16,7 +24,7 @@ floor( 12.12) + 22
 22 kg to g
 ```
 
-### Operations
+## Operations
 
 * add 
 * subtract

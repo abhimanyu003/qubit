@@ -1,6 +1,6 @@
 use pest::iterators::{Pair, Pairs};
-use pest::prec_climber::*;
 use pest::Parser;
+use pest::prec_climber::*;
 
 use crate::convert_chart::convert;
 
@@ -148,6 +148,9 @@ pub fn parse(input: String) -> f64 {
 pub fn transform(input: String) -> String {
     use float_pretty_print::PrettyPrintFloat;
     let c = parse(input);
+    if c.is_nan() {
+        return "-".to_string();
+    }
     if c.fract() == 0.0 {
         return c.to_string().trim().to_string();
     }

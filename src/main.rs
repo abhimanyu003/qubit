@@ -76,10 +76,10 @@ impl Component for Model {
                     </div>
                 </div>
 
-                <div class="w-full max-w-2xl bg-gray-900 text-gray-500 rounded-md text-xl shadow-2xl tracking-tight subpixel-antialiased">
+                <div class="w-full max-w-2xl bg-gray-900 text-gray-500 rounded-md text-md shadow-2xl tracking-tight subpixel-antialiased">
                     <div class="h-full p-4 grid grid-cols-4">
                         <div class="col-span-3">
-                            <textarea oninput=self.link.callback(|e: InputData| Msg::AddText(e.value)) class="text-gray-100 w-full h-full bg-transparent focus:outline-none appearance-none border-0 focus:ring-0 focus:border-0 active:border-0 placeholder-opacity-50 placeholder-gray-500 resize-none" style="resize: none" data-gramm="false" placeholder="2 + 2 + sin ( 90 )\n12 kg to g"></textarea>
+                            <textarea oninput=self.link.callback(|e: InputData| Msg::AddText(e.value)) class="text-gray-200 w-full h-full bg-transparent focus:outline-none appearance-none border-0 focus:ring-0 focus:border-0 active:border-0 placeholder-opacity-50 placeholder-gray-500 resize-none" style="resize: none" data-gramm="false" placeholder="2 + 2 + sin ( 90 )\n12 kg to g"></textarea>
                         </div>
                         <div class="col-span-1 border-l border-opacity-10 text-green-300 overflow-x-auto text-right">
                             <div> {
