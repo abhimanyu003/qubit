@@ -35,7 +35,7 @@ ANGLE = { TURN | RADIAN | DEGREE | GRADIAN }
 TURN = { "turn" | "tr" | "pal"}
 RADIAN = { "radian" | "rad" }
 DEGREE = { "degree" | "deg" }
-GRADIAN = { "gradian" | "grad" | "gon"}
+GRADIAN = { "gradian" | "grad" | "gon" }
 
 // MASS
 MASS = { MICROGRAM | MILLIGRAM | GRAM | KILOGRAM | METRIC_TON | OUNCE | POUND | STONE | SHORT_TON | LONG_TON }
@@ -70,19 +70,19 @@ KELVIN = { "kelvin" | ^"k" }
 
 // Time
 TIME = { NANOSECOND | MICROSECOND | MILLISECOND | SECOND | MINUTE | HOUR | DAY | WEEK | MONTH | YEAR | DECADE | CENTURY | MILLENIUM }
-NANOSECOND = {  "nanoseconds" | "nanosecond" | "nanosecs" | "nanosec" |  "ns" }
-MICROSECOND = { "microseconds" | "microsecond" |  "microsecs" | "microsec" | "µs"  }
-MILLISECOND = { "milliseconds" | "millisecond" | "millisecs" | "millisec" | "ms"  }
-SECOND = {  "seconds" | "second" | "secs" | "sec" }
+NANOSECOND = { "nanoseconds" | "nanosecond" | "nanosecs" | "nanosec" | "ns" }
+MICROSECOND = { "microseconds" | "microsecond" |  "microsecs" | "microsec" | "µs" }
+MILLISECOND = { "milliseconds" | "millisecond" | "millisecs" | "millisec" | "ms" }
+SECOND = { "seconds" | "second" | "secs" | "sec" }
 MINUTE = { "minutes" | "minute" | "min" }
 HOUR = { "hours" | "hour" | "hrs" | "hr" }
 DAY = { "days" | "day" }
 WEEK = { "weeks" | "week" | "wks" | "wk" }
 MONTH = { "months" | "month" | "mos" | "mo" }
 YEAR = { "years" | "year" | "yrs" | "yr" }
-DECADE = { "decades" |  "decade" }
+DECADE = { "decades" | "decade" }
 CENTURY = { "centuries" | "centry" }
-MILLENIUM = { "milleniums" | "millenium" | "millenia"  }
+MILLENIUM = { "milleniums" | "millenium" | "millenia" }
 
 // Area
 AREA = { SQUARE_MILE | SQUARE_METRE | HECTARE | SQUARE_KILOMETRE | SQUARE_INCH | SQUARE_FEET | SQUARE_YARD | ACRE }
@@ -97,11 +97,11 @@ SQUARE_MILE = { "miles2" | "mile2" | "sqmi" | "mi2"  }
 
 // Speed
 SPEED = { METRE_PER_SECOND | KILOMETRES_PER_HOUR | FEET_PER_SECOND | MILES_PER_HOUR | KNOT }
-METRE_PER_SECOND  = { "mps" }
+METRE_PER_SECOND = { "mps" }
 KILOMETRES_PER_HOUR = { "kph" | "kmh" }
 FEET_PER_SECOND = { "fps" }
 MILES_PER_HOUR = { "mph" }
-KNOT = {  "knots" | "knot" | "kn" | "kt"}
+KNOT = { "knots" | "knot" | "kn" | "kt" }
 
 // DIGITALINFORMATION
 DIGITALINFORMATION = { BIT | BYTE | KILOBIT | KILOBYTE | MEGABIT | MEGABYTE | MEGABYTE | GIGABIT | GIGABYTE |
