@@ -62,7 +62,7 @@ impl Component for Model {
         return html! {
         <div class="min-h-screen bg-gray-100">
 
-            <div class="w-full h-full flex flex-col items-center justify-center space-y-8">
+            <div class="w-full h-full flex flex-col items-center justify-center space-y-8 pb-10">
                 <div class="border-b border-gray-200 py-4 flex items-center justify-between -mx-4 px-4 sm:mx-0 sm:px-0 w-full max-w-2xl">
                     <h1 class="text-2xl font-extrabold tracking-tight text-gray-900">{ title }</h1>
                     <div class="flex items-center space-x-6 sm:space-x-10 ml-6 sm:ml-10">
