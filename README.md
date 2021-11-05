@@ -2,7 +2,7 @@
 
 [Website](https://abhimanyu003.github.io/qubit/)
 
-![qubit](media/screenshot.jpg)
+[![qubit](media/screenshot.png)](https://abhimanyu003.github.io/qubit/)
 
 ## Example
 
