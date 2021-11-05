@@ -1,9 +1,6 @@
 name: Deploy to Github pages
 
-on:
-  push:
-    tags:
-      - "v[0-9]+.[0-9]+.[0-9]+"
+on: [workflow_dispatch]
 
 jobs:
   deploy:
