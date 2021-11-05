@@ -2,13 +2,21 @@
 
 # qubit
 
-[Website](https://abhimanyu003.github.io/qubit/)
+<div align="center">
+
+ **[💥 Visit Website To Use Calculator](https://abhimanyu003.github.io/qubit/)**
+
+</div>
 
 [![qubit](media/screenshot.png)](https://abhimanyu003.github.io/qubit/)
 
 ## Example
 
-Visit [Website](https://abhimanyu003.github.io/qubit/) to try
+<div align="center">
+
+ **[💥 Visit Website To Use Calculator](https://abhimanyu003.github.io/qubit/)**
+
+</div>
 
 ```
 2 + 2
