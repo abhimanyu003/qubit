@@ -21,7 +21,7 @@ percentOf   = { "percent of" | "%" ~ "of" }
 percentOn   = { "percent on" | "%" ~ "on" }
 
 function = { ident ~ "(" ~ expr ~ ")" }
-atom = _{ constants | function | convert | ident | num | "(" ~ expr ~ ")"  }
+atom = _{ constants | function | ident | convert | num | "(" ~ expr ~ ")"  }
 expr = { atom ~ (operation ~ atom)* }
 assign = { ident ~ "=" ~ expr }
 
