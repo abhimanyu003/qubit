@@ -4,8 +4,8 @@ extern crate pest;
 #[macro_use]
 extern crate pest_derive;
 
-use yew::prelude::*;
 use yew::ComponentLink;
+use yew::prelude::*;
 use yew::ShouldRender;
 
 mod convert_chart;
@@ -82,7 +82,7 @@ impl Component for Model {
         <div class="min-h-screen bg-gray-100">
 
             <div class="w-full h-full flex flex-col items-center justify-center space-y-8 pb-10">
-                <div class="border-b border-gray-200 py-4 flex items-center justify-between -mx-4 px-4 sm:mx-0 sm:px-0 w-full max-w-2xl">
+                <div class="border-b border-gray-200 py-4 flex items-center justify-between -mx-4 px-4 sm:mx-0 sm:px-0 w-full max-w-lg">
                     <h1 class="text-2xl font-extrabold tracking-tight text-gray-900">{ title }</h1>
                     <div class="flex items-center space-x-6 sm:space-x-10 ml-6 sm:ml-10">
                     <a href="https://github.com/abhimanyu003/qubit" target="_blank" class="text-gray-600 hover:text-gray-900 transition-colors duration-200">
@@ -95,7 +95,7 @@ impl Component for Model {
                     </div>
                 </div>
 
-                <div class="w-full max-w-2xl bg-gray-900 text-gray-500 rounded-md text-md shadow-2xl tracking-tight subpixel-antialiased">
+                <div class="w-full max-w-lg bg-gray-900 text-gray-500 rounded-md text-md shadow-2xl tracking-tight subpixel-antialiased">
                     <div class="h-full p-4 grid grid-cols-4">
                         <div class="col-span-3">
                             <textarea oninput=self.link.callback(|e: InputData| Msg::AddText(e.value)) class="text-gray-200 w-full h-full bg-transparent focus:outline-none appearance-none border-0 focus:ring-0 focus:border-0 active:border-0 placeholder-opacity-50 placeholder-gray-500 resize-none" style="resize: none" data-gramm="false" placeholder="2 + 2 + sin ( 90 )\n12 kg to g"></textarea>
