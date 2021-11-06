@@ -37,37 +37,23 @@ fn eval(expression: Pairs<Rule>) -> f64 {
                     .to_string()
                     .parse::<f64>()
                     .unwrap();
+
+                let unwrap_next_rule = || {
+                    i.clone()
+                        .next()
+                        .unwrap()
+                        .into_inner()
+                        .next()
+                        .unwrap()
+                        .as_rule()
+                };
+
                 // Try to figure out rule name for the conversion between units
                 // weight = kilo to gram
                 // length = kilometer to meter
-                let si_unit_type = i
-                    .clone()
-                    .next()
-                    .unwrap()
-                    .into_inner()
-                    .next()
-                    .unwrap()
-                    .as_rule();
-                let from = i
-                    .next()
-                    .unwrap()
-                    .into_inner()
-                    .next()
-                    .unwrap()
-                    .into_inner()
-                    .next()
-                    .unwrap()
-                    .as_rule();
-                let to = i
-                    .next()
-                    .unwrap()
-                    .into_inner()
-                    .next()
-                    .unwrap()
-                    .into_inner()
-                    .next()
-                    .unwrap()
-                    .as_rule();
+                let si_unit_type = unwrap_next_rule();
+                let from = unwrap_next_rule();
+                let to = unwrap_next_rule();
 
                 convert(
                     value,
