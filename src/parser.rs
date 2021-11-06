@@ -34,7 +34,6 @@ fn eval(expression: Pairs<Rule>) -> f64 {
                     .next()
                     .unwrap()
                     .as_str()
-                    .to_string()
                     .parse::<f64>()
                     .unwrap();
                 // Try to figure out rule name for the conversion between units
@@ -78,7 +77,7 @@ fn eval(expression: Pairs<Rule>) -> f64 {
             }
             Rule::function => {
                 let mut i = pair.into_inner();
-                let name = i.next().unwrap().as_str().to_string();
+                let name = i.next().unwrap().as_str();
                 let value = eval(i);
                 apply_fun(name, value)
             }
@@ -113,8 +112,8 @@ fn percent_of(a: f64, b: f64) -> f64 {
     a / 100_f64 * b
 }
 
-fn apply_fun(name: String, arg: f64) -> f64 {
-    return match name.as_str() {
+fn apply_fun(name: &str, arg: f64) -> f64 {
+    return match name {
         "sin" => arg.to_radians().sin(),
         "cos" => arg.to_radians().cos(),
         "tan" => arg.to_radians().tan(),
@@ -137,8 +136,8 @@ fn apply_fun(name: String, arg: f64) -> f64 {
     };
 }
 
-pub fn parse(input: String) -> f64 {
-    let parse_result = Calculator::parse(Rule::calculation, &input);
+pub fn parse(input: &str) -> f64 {
+    let parse_result = Calculator::parse(Rule::calculation, input);
     match parse_result {
         Ok(r) => eval(r),
         Err(_) => f64::NAN,

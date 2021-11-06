@@ -55,7 +55,7 @@ impl Component for Model {
                 let split = input.split('\n');
 
                 for s in split {
-                    let p = parser::parse(s.to_string());
+                    let p = parser::parse(s);
                     if p.is_normal() {
                         total = total + p;
                     }
