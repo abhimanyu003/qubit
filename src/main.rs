@@ -4,9 +4,8 @@ extern crate pest;
 #[macro_use]
 extern crate pest_derive;
 
-use yew::ComponentLink;
 use yew::prelude::*;
-use yew::services::ConsoleService;
+use yew::ComponentLink;
 use yew::ShouldRender;
 
 mod convert_chart;
@@ -22,6 +21,18 @@ struct Model {
     // It can be used to send messages to the component
     link: ComponentLink<Self>,
     text: String,
+    total: f64,
+}
+
+fn transform(c: f64) -> String {
+    use float_pretty_print::PrettyPrintFloat;
+    if c.is_nan() {
+        return "-".to_string();
+    }
+    if c.fract() == 0.0 {
+        return c.to_string().trim().to_string();
+    }
+    return PrettyPrintFloat(c).to_string().trim().to_string();
 }
 
 impl Component for Model {
@@ -32,19 +43,27 @@ impl Component for Model {
         Self {
             link,
             text: String::from(""),
+            total: 0.0,
         }
     }
 
     fn update(&mut self, msg: Self::Message) -> ShouldRender {
         match msg {
-            Msg::AddText(val) => {
-                let mut input = "".to_string();
-                let split = val.split('\n');
+            Msg::AddText(input) => {
+                let mut output = "".to_string();
+                let mut total = 0.0;
+                let split = input.split('\n');
+
                 for s in split {
-                    input = format!("{}{}", input, parser::transform(s.to_string()) + "\n");
+                    let p = parser::parse(s.to_string());
+                    if p.is_normal() {
+                        total = total + p;
+                    }
+                    output = format!("{}{}", output, transform(p) + "\n");
                 }
-                self.text = input;
-                ConsoleService::info(format!("Update: {:?}", self.text).as_ref());
+
+                self.total = total;
+                self.text = output;
                 true
             }
         }
@@ -89,6 +108,7 @@ impl Component for Model {
                                     } })
                                 }
                             </div>
+                            <div class="text-gray-600 pt-5 text-sm">{ "Total: " }{ self.total }</div>
                         </div>
                     </div>
                 </div>
