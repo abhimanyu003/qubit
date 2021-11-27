@@ -6,9 +6,10 @@
 
  **[💥 Visit Website To Use Calculator](https://abhimanyu003.github.io/qubit/)**
 
+ [![qubit](media/screenshot.png)](https://abhimanyu003.github.io/qubit/)
+
 </div>
 
-[![qubit](media/screenshot.png)](https://abhimanyu003.github.io/qubit/)
 
 ## Example
 
