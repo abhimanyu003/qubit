@@ -2,7 +2,7 @@ use pest::iterators::{Pair, Pairs};
 use pest::prec_climber::*;
 use pest::Parser;
 
-use crate::convert_chart::convert;
+use crate::convert_chart::{convert, UnitType};
 
 #[derive(Parser)]
 #[grammar = "grammar.pest"]
@@ -30,12 +30,7 @@ fn eval(expression: Pairs<Rule>) -> f64 {
         |pair: Pair<Rule>| match pair.as_rule() {
             Rule::convert => {
                 let mut i = pair.into_inner();
-                let value = i
-                    .next()
-                    .unwrap()
-                    .as_str()
-                    .parse::<f64>()
-                    .unwrap();
+                let value = i.next().unwrap().as_str().parse::<f64>().unwrap();
                 // Try to figure out rule name for the conversion between units
                 // weight = kilo to gram
                 // length = kilometer to meter
@@ -68,12 +63,14 @@ fn eval(expression: Pairs<Rule>) -> f64 {
                     .unwrap()
                     .as_rule();
 
-                convert(
-                    value,
-                    format!("{:?}", si_unit_type),
-                    format!("{:?}", from),
-                    format!("{:?}", to),
-                )
+                if let (Ok(from), Ok(to)) = (
+                    format!("{:?}::{:?}", si_unit_type, from).parse::<UnitType>(),
+                    format!("{:?}::{:?}", si_unit_type, to).parse::<UnitType>(),
+                ) {
+                    convert(value, from, to)
+                } else {
+                    f64::NAN
+                }
             }
             Rule::function => {
                 let mut i = pair.into_inner();
@@ -113,7 +110,7 @@ fn percent_of(a: f64, b: f64) -> f64 {
 }
 
 fn apply_fun(name: &str, arg: f64) -> f64 {
-    return match name {
+    match name {
         "sin" => arg.to_radians().sin(),
         "cos" => arg.to_radians().cos(),
         "tan" => arg.to_radians().tan(),
@@ -133,7 +130,7 @@ fn apply_fun(name: &str, arg: f64) -> f64 {
         "ceil" => arg.ceil(),
         "floor" => arg.floor(),
         _ => f64::NAN,
-    };
+    }
 }
 
 pub fn parse(input: &str) -> f64 {
