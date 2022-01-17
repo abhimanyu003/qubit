@@ -3,8 +3,8 @@ ident = @{ ASCII_ALPHA ~ (ASCII_ALPHANUMERIC | "_")* ~ "'"* }
 int = { ("+" | "-")? ~ ASCII_DIGIT+ }
 num = @{ int ~ ("." ~ ASCII_DIGIT*)? ~ (^"e" ~ int)? }
 
-e  = { "e" | "π" }
-pi = { "pi" }
+e  = { "e" }
+pi = { "pi" | "π" }
 tau = { "tau" | "τ" }
 constants = _{ pi | e | tau }
 
